@@ -23,8 +23,7 @@ case "$ARCH" in # they use ARM64 for the deb links
 	x86_64)  deb_arch=x86_64;;
 	aarch64) deb_arch=arm64;;
 esac
-DEB_LINK=$(wget https://api.github.com/repos/pol-rivero/github-desktop-plus/releases -O - \
-      | sed 's/[()",{} ]/\n/g' | grep -Po 'https://[^"]+'$deb_arch'\.deb' | head -n 1)
+DEB_LINK=$(wget https://api.github.com/repos/pol-rivero/github-desktop-plus/releases | grep -Po 'https://[^"]+'$deb_arch'\.deb' | head -n 1)
 echo "$DEB_LINK" | awk -F'/' '{gsub(/^v/, "", $(NF-1)); print $(NF-1); exit}' > ~/version
 if ! wget --retry-connrefused --tries=30 "$DEB_LINK" -O /tmp/app.deb 2>/tmp/download.log; then
 	cat /tmp/download.log
