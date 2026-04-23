@@ -17,6 +17,8 @@
 
 </div>
 
+### ⚠️ aarch64 builds are disabled due this [issue](https://github.com/pol-rivero/github-desktop-plus/issues/143) ⚠️
+
 ---
 
 AppImage made using [sharun](https://github.com/VHSgunzo/sharun) and its wrapper [quick-sharun](https://github.com/pkgforge-dev/Anylinux-AppImages/blob/main/useful-tools/quick-sharun.sh), which makes it extremely easy to turn any binary into a portable package reliably without using containers or similar tricks. 
